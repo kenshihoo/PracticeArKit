@@ -39,6 +39,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    
     //平面を検出したらアンカー情報を元にノード(オブジェクト)を作成して、ルートノードに追加
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return  }
@@ -48,22 +49,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
 
     
-//    //平面情報が更新されたときの処理
-//    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-//        guard let planeAnchor = anchor as? ARPlaneAnchor,
-//                   let planeNode = node.childNodes.first,
-//                   let planeNodeGeometry = planeNode.geometry as? SCNPlane
-//            else { return }
-//
-//        let updatedPosition = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
-//        planeNode.position = updatedPosition
-//
-//        planeNodeGeometry.width  = CGFloat(planeAnchor.extent.x)
-//        planeNodeGeometry.height = CGFloat(planeAnchor.extent.z)
-//    }
-
     //平面に板状のオブジェクトを配置
     func createFloor(from anchor: ARPlaneAnchor) -> SCNNode{
+    
         //表示させるオブジェクトのサイズに用いるアンカーをインスタンス化
         let anchorWidth  = CGFloat(anchor.extent.x)
         let anchorHeight = CGFloat(anchor.extent.z)
@@ -81,5 +69,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         return planeNode
     }
+    //    //平面情報が更新されたときの処理
+    //    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+    //        guard let planeAnchor = anchor as? ARPlaneAnchor,
+    //                   let planeNode = node.childNodes.first,
+    //                   let planeNodeGeometry = planeNode.geometry as? SCNPlane
+    //            else { return }
+    //
+    //        let updatedPosition = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
+    //        planeNode.position = updatedPosition
+    //
+    //        planeNodeGeometry.width  = CGFloat(planeAnchor.extent.x)
+    //        planeNodeGeometry.height = CGFloat(planeAnchor.extent.z)
+    //    }
 
 }
