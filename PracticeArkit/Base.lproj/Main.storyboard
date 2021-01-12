@@ -13,12 +13,21 @@
                     <arscnView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DVF-j7-cWw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="K5O-RM-tZT" appends="YES" id="ExE-Ug-d6U"/>
+                        </connections>
                     </arscnView>
                     <connections>
                         <outlet property="sceneView" destination="DVF-j7-cWw" id="ae0-Li-YRK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="K5O-RM-tZT">
+                    <connections>
+                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="oiK-iv-qLG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138" y="134"/>
         </scene>

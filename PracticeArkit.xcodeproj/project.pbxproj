@@ -13,6 +13,7 @@
 		E3999F1325AC99160063F093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3999F1125AC99160063F093 /* Main.storyboard */; };
 		E3999F1525AC99180063F093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3999F1425AC99180063F093 /* Assets.xcassets */; };
 		E3999F1825AC99180063F093 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3999F1625AC99180063F093 /* LaunchScreen.storyboard */; };
+		E3BF099925ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E3BF099825ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E3999F1425AC99180063F093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3999F1725AC99180063F093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3999F1925AC99180063F093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3BF099825ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = "SceneKit Asset Catalog.scnassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E3999F1425AC99180063F093 /* Assets.xcassets */,
 				E3999F1625AC99180063F093 /* LaunchScreen.storyboard */,
 				E3999F1925AC99180063F093 /* Info.plist */,
+				E3BF099825ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets */,
 			);
 			path = PracticeArkit;
 			sourceTree = "<group>";
@@ -124,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BF099925ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets in Resources */,
 				E3999F1825AC99180063F093 /* LaunchScreen.storyboard in Resources */,
 				E3999F1525AC99180063F093 /* Assets.xcassets in Resources */,
 				E3999F1325AC99160063F093 /* Main.storyboard in Resources */,
