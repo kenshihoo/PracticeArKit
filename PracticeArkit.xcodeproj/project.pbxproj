@@ -60,12 +60,12 @@
 			children = (
 				E3999F0B25AC99160063F093 /* AppDelegate.swift */,
 				E3999F0D25AC99160063F093 /* ViewController.swift */,
-				E3999F0F25AC99160063F093 /* Experience.rcproject */,
 				E3999F1125AC99160063F093 /* Main.storyboard */,
-				E3999F1425AC99180063F093 /* Assets.xcassets */,
-				E3999F1625AC99180063F093 /* LaunchScreen.storyboard */,
 				E3999F1925AC99180063F093 /* Info.plist */,
+				E3999F0F25AC99160063F093 /* Experience.rcproject */,
+				E3999F1625AC99180063F093 /* LaunchScreen.storyboard */,
 				E3BF099825ADB1F1005026A3 /* SceneKit Asset Catalog.scnassets */,
+				E3999F1425AC99180063F093 /* Assets.xcassets */,
 			);
 			path = PracticeArkit;
 			sourceTree = "<group>";
