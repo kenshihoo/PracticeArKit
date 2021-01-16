@@ -16,6 +16,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="K5O-RM-tZT" appends="YES" id="ExE-Ug-d6U"/>
+                            <outletCollection property="gestureRecognizers" destination="K5O-RM-tZT" appends="YES" id="cXq-rY-Oqe"/>
                         </connections>
                     </arscnView>
                     <connections>
@@ -25,7 +26,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="K5O-RM-tZT">
                     <connections>
-                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="oiK-iv-qLG"/>
+                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="mma-ke-aIH"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
