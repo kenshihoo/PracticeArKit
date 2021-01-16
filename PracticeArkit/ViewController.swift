@@ -17,14 +17,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         super.viewDidLoad()
 
         sceneView.delegate = self
-        
-        let scene = SCNScene()
-        sceneView.scene = scene
+
+        sceneView.scene = SCNScene()
     }
     
     //画面が呼ばれる直前の処理
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // 特徴点を表示(なくてもいい)
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        
+        // ライト追加
+        sceneView.autoenablesDefaultLighting = true;
         
         //空間認識をするARWorldTrackingConfigurationをインスタンス化
         let configuration = ARWorldTrackingConfiguration()
@@ -42,78 +47,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
         //上記まででARSCNViewの設定と平面検出ができるようになっている//
-    
-    //画面がタップされたときの処理
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+    //平面を検出したら球を表示させる
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
-        // sceneView上でタップした座標を検出
-        let tapPoint = sender.location(in: sceneView)
-        let results = sceneView.hitTest(tapPoint, types: .existingPlaneUsingExtent)
-        let hitPoint = results.first
+        // 球のノードを作成
+        let sphereNode = SCNNode()
+        // ノードにGeometryとTransform を設定(半径5cmの球で平面から5cm浮かせた位置に置くように設定)
+        sphereNode.geometry = SCNSphere(radius: 0.05)
+        sphereNode.position.y += Float(0.05)
+        // 検出面の子要素にする
+        node.addChildNode(sphereNode)
+        }
         
-        // 現実世界の座標に変換
-        let point = SCNVector3()
-        
-        //タップされた場所にオブジェクトを設置
-        let box = SCNBox(width: 0.25, height: 0.25, length: 0.25, chamferRadius: 0)
-        let node = SCNNode(geometry: box)
-        sceneView.scene.rootNode.addChildNode(node)
-    }
-    
-    
-    
-    
-    
-    //    //平面を検出したらアンカー情報を元にノード(オブジェクト)を作成して、ルートノードに追加
-    //    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-    //        //引数anchorの値がnilでない場合に、createFloorを実行して、設置したオブジェクトをノードに追加
-    //        guard let planeAnchor = anchor as? ARPlaneAnchor else { return  }
-    //
-    //        let floor = createFloor(from: planeAnchor)
-    //        node.addChildNode(floor)
-    //    }
-        
-        
-
-        
-    //    //平面に設置する板状のオブジェクトを生成
-    //    func createFloor(from anchor: ARPlaneAnchor) -> SCNNode{
-    //
-    //        //表示させるオブジェクトのサイズに用いるためにアンカーをインスタンス化
-    //        let anchorWidth  = CGFloat(anchor.extent.x)
-    //        let anchorHeight = CGFloat(anchor.extent.z)
-    //
-    //        //ノードの形状を設定
-    //        let planeGeometry = SCNPlane(width: anchorWidth, height: anchorHeight)
-    //        //ノードの色を設定
-    //        planeGeometry.firstMaterial?.diffuse.contents = UIColor.green
-    //
-    //        //ノードを設置
-    //        let planeNode = SCNNode(geometry: planeGeometry)
-    //        //X軸方向に-90度回転
-    //        planeNode.eulerAngles.x = -Float.pi/2
-    //        //透明度を設定
-    //        planeNode.opacity = 0.6
-    //
-    //        return planeNode
-    //    }
-    
-    
-    
-    //    //平面情報が更新されたときの処理
-    //    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-    //        guard let planeAnchor = anchor as? ARPlaneAnchor,
-    //                   let planeNode = node.childNodes.first,
-    //                   let planeNodeGeometry = planeNode.geometry as? SCNPlane
-    //            else { return }
-    //
-    //        let updatedPosition = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
-    //        planeNode.position = updatedPosition
-    //
-    //        planeNodeGeometry.width  = CGFloat(planeAnchor.extent.x)
-    //        planeNodeGeometry.height = CGFloat(planeAnchor.extent.z)
-    //    }
-        
-        
-
 }
