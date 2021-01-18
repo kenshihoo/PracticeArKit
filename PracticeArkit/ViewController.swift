@@ -51,10 +51,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     //画面がタップされた場合の処理
     override func touchesBegan(_ touches: Set<UITouch>, with event:UIEvent?) {
         // 最初にタップした座標を取り出す
-        guard let touch = touches.first else {return}
+        guard let tfirstouch = touches.first else {return}
         
         // タップした座標をスクリーン座標に変換する
-        let touchPos = touch.location(in: sceneView)
+        let touchPos = tfirstouch.location(in: sceneView)
         
         // タップされた位置のARアンカーを探す
         let hitTest = sceneView.hitTest(touchPos, types:.existingPlaneUsingExtent)
@@ -78,7 +78,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     let sphereNode = SCNNode()
     // ノードにGeometryとTransform を設定
     sphereNode.geometry = SCNSphere(radius: 0.05)
-    sphereNode.position.y += Float(0.05)
+//    sphereNode.position.y += Float(0.05)
     // 検出面の子要素にする
     node.addChildNode(sphereNode)
     }
